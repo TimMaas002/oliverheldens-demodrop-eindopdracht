@@ -8,6 +8,5 @@ package nl.novi.maas.oliverheldens.demodrop.domain;
  */
 public enum ERole {
     ROLE_USER,
-    ROLE_MODERATOR,
     ROLE_ADMIN
 }

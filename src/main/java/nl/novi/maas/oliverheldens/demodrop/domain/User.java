@@ -14,7 +14,7 @@ import javax.persistence.Table;
 import java.util.Set;
 
 @Entity
-@Table(name = "app_user")
+@Table(name = "users")
 public class User {
 
     @Id
@@ -33,10 +33,10 @@ public class User {
     private String password;
 
     @ManyToMany
-    @JoinTable (name = "user_role",
+    @JoinTable (name = "user_roles",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
-    private Set<Role> roles;
+    private Set<Roles> roles;
 
     public User() {
 
@@ -80,11 +80,11 @@ public class User {
         this.password = password;
     }
 
-    public Set<Role> getRoles() {
+    public Set<Roles> getRoles() {
         return roles;
     }
 
-    public void setRoles(Set<Role> roles) {
+    public void setRoles(Set<Roles> roles) {
         this.roles = roles;
     }
 }

@@ -11,7 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Role {
+public class Roles {
 
     @Id
     @GeneratedValue(
@@ -28,10 +28,10 @@ public class Role {
     @Enumerated(EnumType.STRING)
     private ERole name;
 
-    public Role() {
+    public Roles() {
     }
 
-    public Role(ERole name) {
+    public Roles(ERole name) {
         this.name = name;
     }
 

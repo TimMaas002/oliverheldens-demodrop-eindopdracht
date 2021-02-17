@@ -1,7 +1,7 @@
 package nl.novi.maas.oliverheldens.demodrop.service;
 
 import nl.novi.maas.oliverheldens.demodrop.domain.ERole;
-import nl.novi.maas.oliverheldens.demodrop.domain.Role;
+import nl.novi.maas.oliverheldens.demodrop.domain.Roles;
 import nl.novi.maas.oliverheldens.demodrop.domain.User;
 import nl.novi.maas.oliverheldens.demodrop.payload.request.LoginRequest;
 import nl.novi.maas.oliverheldens.demodrop.payload.request.SignupRequest;
@@ -91,29 +91,23 @@ public class AuthorizationService {
                 encoder.encode(signUpRequest.getPassword()));
 
         Set<String> strRoles = signUpRequest.getRole();
-        Set<Role> roles = new HashSet<>();
+        Set<Roles> roles = new HashSet<>();
 
         if (strRoles == null) {
-            Role userRole = roleRepository.findByName(ERole.ROLE_USER)
+            Roles userRole = roleRepository.findByName(ERole.ROLE_USER)
                     .orElseThrow(() -> new RuntimeException(ROLE_NOT_FOUND_ERROR));
             roles.add(userRole);
         } else {
             strRoles.forEach(role -> {
                 switch (role) {
                     case "admin":
-                        Role adminRole = roleRepository.findByName(ERole.ROLE_ADMIN)
+                        Roles adminRole = roleRepository.findByName(ERole.ROLE_ADMIN)
                                 .orElseThrow(() -> new RuntimeException(ROLE_NOT_FOUND_ERROR));
                         roles.add(adminRole);
 
                         break;
-                    case "mod":
-                        Role modRole = roleRepository.findByName(ERole.ROLE_MODERATOR)
-                                .orElseThrow(() -> new RuntimeException(ROLE_NOT_FOUND_ERROR));
-                        roles.add(modRole);
-
-                        break;
                     default:
-                        Role userRole = roleRepository.findByName(ERole.ROLE_USER)
+                        Roles userRole = roleRepository.findByName(ERole.ROLE_USER)
                                 .orElseThrow(() -> new RuntimeException(ROLE_NOT_FOUND_ERROR));
                         roles.add(userRole);
                 }
