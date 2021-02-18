@@ -1,19 +1,21 @@
 package nl.novi.maas.oliverheldens.demodrop.controller;
 
-import nl.novi.maas.oliverheldens.demodrop.service.FeedbackTextService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-@CrossOrigin(origins = "*", maxAge = 3600)
-@RestController
-@RequestMapping("/feedback_text")
-public class FeedbackTextController {
-
-    @Autowired
-    FeedbackTextService feedbackTextService;
-
-}
+//import nl.novi.maas.oliverheldens.demodrop.service.FeedbackTextService;
+//import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.http.ResponseEntity;
+//import org.springframework.web.bind.annotation.*;
+//
+//@CrossOrigin(origins = "*", maxAge = 3600)
+//@RestController
+//@RequestMapping("/feedback_text")
+//public class FeedbackTextController {
+//
+//    @Autowired
+//    FeedbackTextService feedbackTextService;
+//
+//    @GetMapping(value = "/{message_number}")
+//    public ResponseEntity<Object> getMessage(@PathVariable("message_number") int message_number) {
+//        return ResponseEntity.ok().body(FeedbackTextService.getMessageByMessageNumber(message_number));
+//    }
+//
+//}
