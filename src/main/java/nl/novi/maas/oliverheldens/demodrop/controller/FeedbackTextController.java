@@ -15,7 +15,7 @@ package nl.novi.maas.oliverheldens.demodrop.controller;
 //
 //    @GetMapping(value = "/{message_number}")
 //    public ResponseEntity<Object> getMessage(@PathVariable("message_number") int message_number) {
-//        return ResponseEntity.ok().body(FeedbackTextService.getMessageByMessageNumber(message_number));
+//        return ResponseEntity.ok().body(FeedbackTextService.getMessageByMessageId(message_number));
 //    }
 //
 //}

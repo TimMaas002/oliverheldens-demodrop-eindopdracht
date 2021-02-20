@@ -1,6 +1,6 @@
 package nl.novi.maas.oliverheldens.demodrop;
 
-import nl.novi.maas.oliverheldens.demodrop.payload.request.FeedbackTextRequest;
+//import nl.novi.maas.oliverheldens.demodrop.payload.request.FeedbackTextRequest;
 import nl.novi.maas.oliverheldens.demodrop.payload.request.SignupRequest;
 import nl.novi.maas.oliverheldens.demodrop.service.AuthorizationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,9 +50,9 @@ public class DatabaseFiller implements CommandLineRunner {
         user.setRole(rollen);
         authorizationService.registerUser(user);
 
-        FeedbackTextRequest text_1 = new FeedbackTextRequest();
-        text_1.setMessage("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.");
-        text_1.setMessage_number(1);
+//        FeedbackTextRequest text_1 = new FeedbackTextRequest();
+//        text_1.setMessage("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.");
+//        text_1.setMessage_number(1);
 
     }
 }
