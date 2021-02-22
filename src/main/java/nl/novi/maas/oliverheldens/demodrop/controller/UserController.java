@@ -18,37 +18,37 @@ import java.util.List;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/users")
 public class UserController {
 
     @Autowired
     private UserService userService;
 
-    @GetMapping(value = "/users")
+    @GetMapping(value = "")
     public ResponseEntity<Object> getAllUsers() {
         List<User> users = userService.getAllUsers();
         return new ResponseEntity<>(users, HttpStatus.OK);
     }
 
-    @GetMapping(value = "/users/{id}")
+    @GetMapping(value = "/{id}")
     public ResponseEntity<Object> getUserById(@PathVariable("id") long id) {
         User user = userService.getUserById(id);
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
 
-    @DeleteMapping(value = "/users/{id}")
+    @DeleteMapping(value = "/{id}")
     public ResponseEntity<Object> deleteUser(@PathVariable("id") long id) {
         userService.deleteUser(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
-    @PostMapping(value = "/users")
+    @PostMapping(value = "")
     public ResponseEntity<Object> saveUser(@RequestBody User user) {
         long newId = userService.saveUser(user);
         return new ResponseEntity<>(newId, HttpStatus.CREATED);
     }
 
-    @PutMapping(value = "/users/{id}")
+    @PutMapping(value = "/{id}")
     public ResponseEntity<Object> updateUser(@PathVariable("id") int id, @RequestBody User user) {
         userService.updateUser(id, user);
         return new ResponseEntity<>(HttpStatus.OK);

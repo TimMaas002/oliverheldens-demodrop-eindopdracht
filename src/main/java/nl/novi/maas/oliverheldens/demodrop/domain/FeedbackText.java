@@ -19,15 +19,13 @@ public class FeedbackText {
     )
     @Column(columnDefinition = "serial")
     private long id;
-    private int message_number;
     private String message;
 
     public FeedbackText() {
 
     }
 
-    public FeedbackText(int message_number, String message) {
-        this.message_number = message_number;
+    public FeedbackText(String message) {
         this.message = message;
     }
 
@@ -47,11 +45,4 @@ public class FeedbackText {
         this.message = message;
     }
 
-    public int getMessage_number() {
-        return message_number;
-    }
-
-    public void setMessage_number(int message_number) {
-        this.message_number = message_number;
-    }
 }
