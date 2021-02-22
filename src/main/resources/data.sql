@@ -14,3 +14,8 @@ database te krijgen is via SQL statements in dit bestand.
 
 INSERT INTO roles(name) VALUES('ROLE_USER');
 INSERT INTO roles(name) VALUES('ROLE_ADMIN');
+
+INSERT INTO feedback_text(message) VALUES('dit is feedback text nummer 1');
+INSERT INTO feedback_text(message) VALUES('dit is feedback text nummer 2');
+INSERT INTO feedback_text(message) VALUES('dit is feedback text nummer 3');
+INSERT INTO feedback_text(message) VALUES('dit is feedback text nummer 4');
