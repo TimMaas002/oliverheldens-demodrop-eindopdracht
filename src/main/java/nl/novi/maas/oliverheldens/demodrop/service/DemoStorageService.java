@@ -16,12 +16,12 @@ import java.util.Optional;
 import java.util.stream.Stream;
 
 @Service
-public class StorageService {
+public class DemoStorageService {
 
     private static DemoFilesRepository demoFilesRepository;
 
     @Autowired
-    public StorageService(DemoFilesRepository demoFilesRepository) {
+    public DemoStorageService(DemoFilesRepository demoFilesRepository) {
         this.demoFilesRepository = demoFilesRepository;
     }
 

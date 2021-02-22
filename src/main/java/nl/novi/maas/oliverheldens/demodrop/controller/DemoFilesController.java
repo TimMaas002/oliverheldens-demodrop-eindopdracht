@@ -2,11 +2,9 @@ package nl.novi.maas.oliverheldens.demodrop.controller;
 
 import nl.novi.maas.oliverheldens.demodrop.domain.DemoFiles;
 import nl.novi.maas.oliverheldens.demodrop.payload.response.FileResponse;
-import nl.novi.maas.oliverheldens.demodrop.service.StorageService;
+import nl.novi.maas.oliverheldens.demodrop.service.DemoStorageService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 //import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -24,17 +22,17 @@ import java.util.stream.Collectors;
 @RequestMapping("/api/files")
 public class DemoFilesController {
 
-    private final StorageService storageService;
+    private final DemoStorageService demoStorageService;
 
     @Autowired
-    public DemoFilesController(StorageService storageService) {
-        this.storageService = storageService;
+    public DemoFilesController(DemoStorageService demoStorageService) {
+        this.demoStorageService = demoStorageService;
     }
 
     @PostMapping
     public ResponseEntity<String> upload(@RequestParam("file") MultipartFile file, Principal principal) {
         try {
-            storageService.save(file);
+            demoStorageService.save(file);
 
             return ResponseEntity.status(HttpStatus.OK)
                     .body(String.format("File uploaded successfully: %s", file.getOriginalFilename()));
@@ -46,7 +44,7 @@ public class DemoFilesController {
 
     @GetMapping
     public List<FileResponse> list() {
-        return storageService.getAllFiles()
+        return demoStorageService.getAllFiles()
                 .stream()
                 .map(this::mapToFileResponse)
                 .collect(Collectors.toList());
@@ -70,7 +68,7 @@ public class DemoFilesController {
     @GetMapping("/{id}")
     // ResponsEntity []byte = String
     public ResponseEntity<String> getFile(@PathVariable String id) {
-        Optional<DemoFiles> demoFilesOptional = StorageService.getFile(id);
+        Optional<DemoFiles> demoFilesOptional = DemoStorageService.getFile(id);
 
         if (!demoFilesOptional.isPresent()) {
             return ResponseEntity.notFound()
