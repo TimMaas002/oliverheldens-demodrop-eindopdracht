@@ -2,11 +2,10 @@ package nl.novi.maas.oliverheldens.demodrop.controller;
 
 import nl.novi.maas.oliverheldens.demodrop.domain.DemoFiles;
 import nl.novi.maas.oliverheldens.demodrop.payload.response.FileResponse;
-import nl.novi.maas.oliverheldens.demodrop.service.DemoStorageService;
+import nl.novi.maas.oliverheldens.demodrop.service.StorageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-//import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -22,17 +21,17 @@ import java.util.stream.Collectors;
 @RequestMapping("/api/files")
 public class DemoFilesController {
 
-    private final DemoStorageService demoStorageService;
+    private final StorageService storageService;
 
     @Autowired
-    public DemoFilesController(DemoStorageService demoStorageService) {
-        this.demoStorageService = demoStorageService;
+    public DemoFilesController(StorageService storageService) {
+        this.storageService = storageService;
     }
 
     @PostMapping
     public ResponseEntity<String> upload(@RequestParam("file") MultipartFile file, Principal principal) {
         try {
-            demoStorageService.save(file);
+            storageService.save(file);
 
             return ResponseEntity.status(HttpStatus.OK)
                     .body(String.format("File uploaded successfully: %s", file.getOriginalFilename()));
@@ -44,7 +43,7 @@ public class DemoFilesController {
 
     @GetMapping
     public List<FileResponse> list() {
-        return demoStorageService.getAllFiles()
+        return storageService.getAllFiles()
                 .stream()
                 .map(this::mapToFileResponse)
                 .collect(Collectors.toList());
@@ -52,7 +51,7 @@ public class DemoFilesController {
 
     private FileResponse mapToFileResponse(DemoFiles demoFiles) {
         String downloadURL = ServletUriComponentsBuilder.fromCurrentContextPath()
-                .path("/files/")
+                .path("/api/files/")
                 .path(demoFiles.getId())
                 .toUriString();
         FileResponse fileResponse = new FileResponse("","","",0,"","");
@@ -68,7 +67,7 @@ public class DemoFilesController {
     @GetMapping("/{id}")
     // ResponsEntity []byte = String
     public ResponseEntity<String> getFile(@PathVariable String id) {
-        Optional<DemoFiles> demoFilesOptional = DemoStorageService.getFile(id);
+        Optional<DemoFiles> demoFilesOptional = StorageService.getFile(id);
 
         if (!demoFilesOptional.isPresent()) {
             return ResponseEntity.notFound()
