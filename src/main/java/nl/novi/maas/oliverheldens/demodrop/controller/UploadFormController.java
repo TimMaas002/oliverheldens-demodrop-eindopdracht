@@ -11,7 +11,7 @@ import java.util.List;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
-@RequestMapping("/uploadforms")
+@RequestMapping("/api/uploadforms")
 public class UploadFormController {
 
     @Autowired
