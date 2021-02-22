@@ -15,8 +15,6 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Stream;
 
-import static nl.novi.maas.oliverheldens.demodrop.service.FileUploadService.uploadDirectory;
-
 @Service
 public class StorageService {
 
