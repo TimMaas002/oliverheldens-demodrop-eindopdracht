@@ -24,7 +24,7 @@ public class FeedbackTextController {
     }
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity<Object> getUploadTextById(@PathVariable("id") long id) {
+    public ResponseEntity<Object> getFeedbackTextById(@PathVariable("id") long id) {
         FeedbackText feedbackText = feedbackTextService.getFeedbackTextById(id);
         return new ResponseEntity<>(feedbackText, HttpStatus.OK);
     }

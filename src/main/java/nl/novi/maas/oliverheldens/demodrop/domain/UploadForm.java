@@ -2,16 +2,7 @@ package nl.novi.maas.oliverheldens.demodrop.domain;
 
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
-import java.util.Set;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "upload_form")
@@ -26,12 +17,13 @@ public class UploadForm {
             name = "native",
             strategy = "native"
     )
+
     @Column(columnDefinition = "serial")
     private long id;
     private String artist_name;
     private String email;
     private String song_name;
-    private String upload_file; // misschien veranderd deze nog naar een ander type?
+//    private String upload_file; // misschien veranderd deze nog naar een ander type?
     private String message;
 
     public UploadForm() {
@@ -46,13 +38,6 @@ public class UploadForm {
     public UploadForm(String artist_name, String song_name, String message) {
         this.artist_name = artist_name;
         this.song_name = song_name;
-        this.message = message;
-    }
-
-    public UploadForm(String artist_name, String song_name, String message, String upload_file) {
-        this.artist_name = artist_name;
-        this.song_name = song_name;
-        this.upload_file = upload_file;
         this.message = message;
     }
 
@@ -88,13 +73,13 @@ public class UploadForm {
         this.song_name = song_name;
     }
 
-    public String getUpload_file() {
-        return upload_file;
-    }
-
-    public void setUpload_file(String upload_file) {
-        this.upload_file = upload_file;
-    }
+//    public String getUpload_file() {
+//        return upload_file;
+//    }
+//
+//    public void setUpload_file(String upload_file) {
+//        this.upload_file = upload_file;
+//    }
 
     public String getMessage() {
         return message;
@@ -103,4 +88,5 @@ public class UploadForm {
     public void setMessage(String message) {
         this.message = message;
     }
+
 }

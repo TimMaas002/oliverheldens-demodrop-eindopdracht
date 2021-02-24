@@ -1,6 +1,7 @@
 package nl.novi.maas.oliverheldens.demodrop.payload.response;
 
 public class FeedbackTextResponse {
+
     private String message;
 
     public FeedbackTextResponse(String message) {

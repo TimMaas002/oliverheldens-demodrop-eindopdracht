@@ -2,15 +2,7 @@ package nl.novi.maas.oliverheldens.demodrop.domain;
 
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Set;
 
 @Entity
@@ -38,11 +30,22 @@ public class User {
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Roles> roles;
 
+    @OneToMany(mappedBy = "user")
+    private Set<Demo> demos;
+
+
     public User() {
 
     }
 
     public User(String username, String email, String password) {
+        this.username = username;
+        this.email = email;
+        this.password = password;
+    }
+
+    public User(Long id, String username, String email, String password) {
+        this.id = id;
         this.username = username;
         this.email = email;
         this.password = password;
@@ -86,5 +89,13 @@ public class User {
 
     public void setRoles(Set<Roles> roles) {
         this.roles = roles;
+    }
+
+    public Set<Demo> getDemos() {
+        return demos;
+    }
+
+    public void setDemos(Set<Demo> demos) {
+        this.demos = demos;
     }
 }

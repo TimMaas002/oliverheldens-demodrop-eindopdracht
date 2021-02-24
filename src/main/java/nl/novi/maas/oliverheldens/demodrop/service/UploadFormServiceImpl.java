@@ -54,7 +54,7 @@ public class UploadFormServiceImpl implements UploadFormService {
                 existingUploadForm.setArtist_name(uploadForm.getArtist_name());
                 existingUploadForm.setEmail(uploadForm.getEmail());
                 existingUploadForm.setSong_name(uploadForm.getSong_name());
-                existingUploadForm.setUpload_file(uploadForm.getUpload_file());
+//                existingUploadForm.setUpload_file(uploadForm.getUpload_file());
                 existingUploadForm.setMessage(uploadForm.getMessage());
                 uploadFormRepository.save(existingUploadForm);
             }

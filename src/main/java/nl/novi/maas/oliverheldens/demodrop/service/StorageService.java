@@ -29,8 +29,8 @@ public class StorageService {
 
     public void save(MultipartFile file) throws IOException {
 
-            Path uploadDirectory = Paths.get(System.getProperty("user.dir") + "/FileUploads/");
-            Files.copy(file.getInputStream(), uploadDirectory.resolve(file.getOriginalFilename()));
+        Path uploadDirectory = Paths.get(System.getProperty("user.dir") + "/FileUploads/");
+        Files.copy(file.getInputStream(), uploadDirectory.resolve(file.getOriginalFilename()));
 
         DemoFiles fileEntity = new DemoFiles();
         fileEntity.setName(StringUtils.cleanPath(file.getOriginalFilename()));
