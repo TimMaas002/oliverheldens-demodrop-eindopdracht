@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.security.Principal;
 
 public interface DemoService {
-
-    void uploadDemoToDir(MultipartFile file, Principal principal) throws IOException;
+    public void uploadDemoToDir(MultipartFile file, Principal principal,String name, String message) throws IOException;
 
 }

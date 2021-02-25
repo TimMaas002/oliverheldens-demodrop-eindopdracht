@@ -24,7 +24,7 @@ public class FeedbackFormController {
     }
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity<Object> getUploadFormById(@PathVariable("id") long id) {
+    public ResponseEntity<Object> getFeedbackFormById(@PathVariable("id") long id) {
         FeedbackForm feedbackForm = feedbackFormService.getFeedbackFormById(id);
         return new ResponseEntity<>(feedbackForm, HttpStatus.OK);
     }

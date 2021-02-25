@@ -22,7 +22,10 @@ public class DemoController {
     DemoService demoService;
 
     @PostMapping("")
-    public void uploadFile(@RequestParam("file") MultipartFile file, Principal principal) throws IllegalStateException, IOException {
-        demoService.uploadDemoToDir(file, principal);
+    public void uploadFile(@RequestParam("file") MultipartFile file,
+                           Principal principal,
+                           @RequestParam("message") String message,
+                           @RequestParam("name") String name) throws IllegalStateException, IOException {
+        demoService.uploadDemoToDir(file, principal, name, message);
     }
 }

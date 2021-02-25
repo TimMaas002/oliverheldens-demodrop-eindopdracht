@@ -1,5 +1,6 @@
 package nl.novi.maas.oliverheldens.demodrop.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.Column;
@@ -13,7 +14,7 @@ import javax.persistence.Table;
 import java.io.File;
 
 @Entity
-@Table(name = "app_demo")
+@Table(name = "upload_form_demo")
 public class Demo {
 
     @Id
@@ -21,29 +22,29 @@ public class Demo {
             strategy = GenerationType.AUTO,
             generator = "native"
     )
-
     @GenericGenerator(
             name = "native",
             strategy = "native"
     )
-
     @Column(columnDefinition = "serial")
     private long id;
     private String name;
-    File demoUpload;
+    private String message;
+    private String demo;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
+    @JsonIgnore
     private User user;
 
     public Demo() {
-
     }
 
-    public Demo(long id, String name, File demoUpload) {
+    public Demo(long id, String name, String message, String demo) {
         this.id = id;
         this.name = name;
-        this.demoUpload = demoUpload;
+        this.message = message;
+        this.demo = demo;
     }
 
     public long getId() {
@@ -62,12 +63,12 @@ public class Demo {
         this.name = name;
     }
 
-    public File getDemoUpload() {
-        return demoUpload;
+    public String getMessage() {
+        return message;
     }
 
-    public void setDemoUpload(File demoUpload) {
-        this.demoUpload = demoUpload;
+    public void setMessage(String message) {
+        this.message = message;
     }
 
     public User getUser() {
@@ -76,5 +77,13 @@ public class Demo {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public String getDemo() {
+        return demo;
+    }
+
+    public void setDemo(String demo) {
+        this.demo = demo;
     }
 }

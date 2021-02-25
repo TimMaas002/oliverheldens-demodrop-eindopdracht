@@ -25,14 +25,13 @@ public class User {
     private String password;
 
     @ManyToMany
-    @JoinTable (name = "user_roles",
+    @JoinTable (name = "user_role",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Roles> roles;
 
     @OneToMany(mappedBy = "user")
-    private Set<Demo> demos;
-
+    private Set<Demo> Demos;
 
     public User() {
 
@@ -44,7 +43,7 @@ public class User {
         this.password = password;
     }
 
-    public User(Long id, String username, String email, String password) {
+    public User(long id, String username, String email, String password) {
         this.id = id;
         this.username = username;
         this.email = email;
@@ -92,10 +91,10 @@ public class User {
     }
 
     public Set<Demo> getDemos() {
-        return demos;
+        return Demos;
     }
 
     public void setDemos(Set<Demo> demos) {
-        this.demos = demos;
+        Demos = demos;
     }
 }

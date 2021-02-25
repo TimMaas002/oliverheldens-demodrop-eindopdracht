@@ -15,7 +15,7 @@ import java.security.Principal;
 import java.util.Optional;
 
 @Service
-public class DemoServiceImpl implements DemoService {
+public class DemoServiceImpl implements DemoService{
 
     @Autowired
     private DemoRepository demoRepository;
@@ -26,7 +26,7 @@ public class DemoServiceImpl implements DemoService {
     public static String uploadDir = System.getProperty("user.dir") + "/fileUploads/";
 
     @Override
-    public void uploadDemoToDir(MultipartFile file, Principal principal) throws IOException {
+    public void uploadDemoToDir(MultipartFile file, Principal principal,String name, String message) throws IOException {
         file.transferTo(new File(uploadDir + file.getOriginalFilename()));
 
         long currentUserId = ((UserDetailsImpl) ((UsernamePasswordAuthenticationToken) principal).getPrincipal()).getId();
@@ -34,7 +34,9 @@ public class DemoServiceImpl implements DemoService {
 
         Demo demo = new Demo();
 
-        demo.setName(file.getOriginalFilename());
+        demo.setDemo(file.getOriginalFilename());
+        demo.setName(name);
+        demo.setMessage(message);
         demo.setUser(optionalUser.get());
 
         demoRepository.save(demo).getId();
