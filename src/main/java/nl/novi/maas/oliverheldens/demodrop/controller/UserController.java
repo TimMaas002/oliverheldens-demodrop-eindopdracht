@@ -1,6 +1,7 @@
 package nl.novi.maas.oliverheldens.demodrop.controller;
 
 import nl.novi.maas.oliverheldens.demodrop.domain.User;
+import nl.novi.maas.oliverheldens.demodrop.exceptions.BadRequestException;
 import nl.novi.maas.oliverheldens.demodrop.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -39,7 +40,7 @@ public class UserController {
     @DeleteMapping(value = "/{id}")
     public ResponseEntity<Object> deleteUser(@PathVariable("id") long id) {
         userService.deleteUser(id);
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        return new ResponseEntity<>("User has been deleted succesfully" ,HttpStatus.NO_CONTENT);
     }
 
     @PostMapping(value = "")
@@ -51,6 +52,6 @@ public class UserController {
     @PutMapping(value = "/{id}")
     public ResponseEntity<Object> updateUser(@PathVariable("id") int id, @RequestBody User user) {
         userService.updateUser(id, user);
-        return new ResponseEntity<>(HttpStatus.OK);
+        return new ResponseEntity<>("User has been updated succesfully" ,HttpStatus.OK);
     }
 }
