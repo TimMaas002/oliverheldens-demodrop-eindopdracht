@@ -26,7 +26,7 @@ public class DemoServiceImpl implements DemoService{
     public static String uploadDir = System.getProperty("user.dir") + "/fileUploads/";
 
     @Override
-    public void uploadDemoToDir(MultipartFile file, Principal principal,String name, String message) throws IOException {
+    public void uploadDemoToDir(MultipartFile file, Principal principal,String name, String email, String message) throws IOException {
         file.transferTo(new File(uploadDir + file.getOriginalFilename()));
 
         long currentUserId = ((UserDetailsImpl) ((UsernamePasswordAuthenticationToken) principal).getPrincipal()).getId();
@@ -34,14 +34,13 @@ public class DemoServiceImpl implements DemoService{
 
         Demo demo = new Demo();
 
-        demo.setDemo(file.getOriginalFilename());
         demo.setName(name);
+        demo.setEmail(email);
+        demo.setDemo(file.getOriginalFilename());
         demo.setMessage(message);
         demo.setUser(optionalUser.get());
 
         demoRepository.save(demo).getId();
     }
-
-
 
 }

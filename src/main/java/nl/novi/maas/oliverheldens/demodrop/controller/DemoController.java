@@ -15,17 +15,18 @@ import java.security.Principal;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
-@RequestMapping("/api/files/uploads")
+@RequestMapping("/api/files")
 public class DemoController {
 
     @Autowired
     DemoService demoService;
 
-    @PostMapping("")
+    @PostMapping("/uploads")
     public void uploadFile(@RequestParam("file") MultipartFile file,
                            Principal principal,
                            @RequestParam("message") String message,
-                           @RequestParam("name") String name) throws IllegalStateException, IOException {
-        demoService.uploadDemoToDir(file, principal, name, message);
+                           @RequestParam("name") String name,
+                           @RequestParam("email") String email) throws IllegalStateException, IOException {
+        demoService.uploadDemoToDir(file, principal, name, email, message);
     }
 }
