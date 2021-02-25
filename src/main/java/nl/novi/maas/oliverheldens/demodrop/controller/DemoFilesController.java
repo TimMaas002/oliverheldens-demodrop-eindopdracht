@@ -6,6 +6,7 @@ import nl.novi.maas.oliverheldens.demodrop.service.StorageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -28,6 +29,7 @@ public class DemoFilesController {
         this.storageService = storageService;
     }
 
+    @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
     @PostMapping
     public ResponseEntity<String> upload(@RequestParam("file") MultipartFile file, Principal principal) {
         try {
@@ -41,6 +43,7 @@ public class DemoFilesController {
         }
     }
 
+    @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
     @GetMapping
     public List<FileResponse> list() {
         return storageService.getAllFiles()
@@ -64,6 +67,7 @@ public class DemoFilesController {
         return fileResponse;
     }
 
+    @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
     @GetMapping("/{id}")
     // ResponsEntity []byte = String
     public ResponseEntity<String> getFile(@PathVariable String id) {
