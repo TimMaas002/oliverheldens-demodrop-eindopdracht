@@ -69,7 +69,6 @@ public class DemoFilesController {
 
     @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
     @GetMapping("/{id}")
-    // ResponsEntity []byte = String
     public ResponseEntity<String> getFile(@PathVariable String id) {
         Optional<DemoFiles> demoFilesOptional = StorageService.getFile(id);
 
@@ -80,9 +79,6 @@ public class DemoFilesController {
 
         DemoFiles demoFiles = demoFilesOptional.get();
         return ResponseEntity.ok()
-//                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + demoFiles.getName() + "\"")
-//                .contentType(MediaType.valueOf(demoFiles.getContentType()))
-//                .body(demoFiles.getData());
                 .body(demoFiles.getDirectory());
     }
 

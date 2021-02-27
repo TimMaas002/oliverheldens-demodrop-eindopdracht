@@ -32,21 +32,14 @@ public class UploadFormController {
         return new ResponseEntity<>(uploadForm, HttpStatus.OK);
     }
 
-//    @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
-//    @DeleteMapping(value = "/{id}")
-//    public ResponseEntity<Object> deleteUploadForm(@PathVariable("id") long id) {
-//        uploadFormService.deleteUploadForm(id);
-//        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-//    }
-
-    @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping(value = "")
     public ResponseEntity<Object> saveUploadForm(@RequestBody UploadForm uploadForm) {
         long newId = uploadFormService.saveUploadForm(uploadForm);
         return new ResponseEntity<>(newId, HttpStatus.CREATED);
     }
 
-    @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping(value = "/{id}")
     public ResponseEntity<Object> updateUploadForm(@PathVariable("id") long id, @RequestBody UploadForm uploadForm) {
         uploadFormService.updateUploadForm(id, uploadForm);

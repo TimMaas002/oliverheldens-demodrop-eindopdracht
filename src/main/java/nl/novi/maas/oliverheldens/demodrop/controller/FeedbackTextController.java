@@ -32,25 +32,4 @@ public class FeedbackTextController {
         return new ResponseEntity<>(feedbackText, HttpStatus.OK);
     }
 
-//    @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
-//    @DeleteMapping(value = "/{id}")
-//    public ResponseEntity<Object> deleteFeedbackText(@PathVariable("id") long id) {
-//        feedbackTextService.deleteFeedbackText(id);
-//        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-//    }
-
-//    @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
-//    @PostMapping(value = "")
-//    public ResponseEntity<Object> saveFeedbackText(@RequestBody FeedbackText feedbackText) {
-//        long newId = feedbackTextService.saveFeedbackText(feedbackText);
-//        return new ResponseEntity<>(newId, HttpStatus.CREATED);
-//    }
-
-//    @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
-//    @PutMapping(value = "/{id}")
-//    public ResponseEntity<Object> updateFeedbackText(@PathVariable("id") long id, @RequestBody FeedbackText feedbackText) {
-//        feedbackTextService.updateFeedbackText(id, feedbackText);
-//        return new ResponseEntity<>(HttpStatus.OK);
-//    }
-
 }
