@@ -18,7 +18,7 @@ public class UploadFormController {
     @Autowired
     UploadFormService uploadFormService;
 
-    @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
+    @PreAuthorize("hasRole('ADMIN')")
     @GetMapping(value = "")
     public ResponseEntity<Object> getAllUploadForms() {
         List<UploadForm> uploadForms = uploadFormService.getAllUploadForms();
@@ -32,12 +32,12 @@ public class UploadFormController {
         return new ResponseEntity<>(uploadForm, HttpStatus.OK);
     }
 
-    @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
-    @DeleteMapping(value = "/{id}")
-    public ResponseEntity<Object> deleteUploadForm(@PathVariable("id") long id) {
-        uploadFormService.deleteUploadForm(id);
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-    }
+//    @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
+//    @DeleteMapping(value = "/{id}")
+//    public ResponseEntity<Object> deleteUploadForm(@PathVariable("id") long id) {
+//        uploadFormService.deleteUploadForm(id);
+//        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+//    }
 
     @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
     @PostMapping(value = "")
