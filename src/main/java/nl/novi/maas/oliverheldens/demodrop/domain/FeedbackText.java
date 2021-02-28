@@ -8,6 +8,11 @@ import javax.persistence.*;
 @Table(name = "feedback_text")
 public class FeedbackText {
 
+    /**
+     Middels dit domain kunnen de feedbacktexten
+     geplaatst worden in de database met elk zijn eigen id
+     **/
+
     @Id
     @GeneratedValue(
             strategy = GenerationType.AUTO,

@@ -12,6 +12,12 @@ import org.hibernate.annotations.GenericGenerator;
 @Table(name = "FILES")
 public class DemoFiles {
 
+    /**
+     Onderdeel van de demofilescontroller.
+     Via dit domain worden de verschillende meta data
+     laten zien die uit de demofile upload worden gehaald
+     **/
+
     @Id
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid2")

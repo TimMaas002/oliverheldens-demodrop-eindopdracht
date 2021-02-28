@@ -19,7 +19,7 @@ import java.util.List;
 public class UserController {
 
     /**
-     Via dit endpoint kunnen alle users opgehaald worden, net als een specifieke.
+     Via dit endpoint kunnen alle users opgehaald worden, net als een specifieke user.
      **/
 
     @Autowired

@@ -11,7 +11,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import java.io.File;
 
 @Entity
 @Table(name = "upload_form_demo")
@@ -32,6 +31,11 @@ public class Demo {
     private String email;
     private String demo;
     private String message;
+
+    /**
+     Hier wordt een koppel tabel aangemaakt tussen de
+     upgeloade demo en de user die dit heeft geupload
+     **/
 
     @ManyToOne
     @JoinColumn(name = "user_id")

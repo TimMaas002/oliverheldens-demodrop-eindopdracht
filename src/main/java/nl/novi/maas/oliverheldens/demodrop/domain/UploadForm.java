@@ -7,15 +7,16 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.Table;
-import java.util.Set;
 
 @Entity
 @Table(name = "upload_form")
 public class UploadForm {
+
+    /**
+     Middels dit domain wordt er gekeken of de informatie voor het uploadform goed is geplaatst
+     Hierna wordt het doorgegeven aan de service
+     **/
 
     @Id
     @GeneratedValue(

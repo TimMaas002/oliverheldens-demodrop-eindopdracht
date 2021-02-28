@@ -8,6 +8,10 @@ import javax.persistence.*;
 @Table(name = "roles")
 public class Roles {
 
+    /**
+     Geef via de ERole de ROLE_USER & ROLE_ADMIN door aan de tabel Roles
+     **/
+
     @Id
     @GeneratedValue(
             strategy= GenerationType.AUTO,

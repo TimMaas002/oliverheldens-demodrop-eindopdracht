@@ -9,6 +9,11 @@ import javax.persistence.*;
 @Table(name = "feedback_form")
 public class FeedbackForm {
 
+    /**
+     Dit domain geeft weer welke informatie er binnen moet komen vanuit de frontend
+     voor het feedbackformulier
+     **/
+
     @Id
     @GeneratedValue(
             strategy = GenerationType.AUTO,

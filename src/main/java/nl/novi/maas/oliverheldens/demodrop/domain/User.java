@@ -9,6 +9,10 @@ import java.util.Set;
 @Table(name = "users")
 public class User {
 
+    /**
+     Dit domain maakt de users aan, ook koppelt het gelijk de role hieraan
+     **/
+
     @Id
     @GeneratedValue(
             strategy= GenerationType.AUTO,
