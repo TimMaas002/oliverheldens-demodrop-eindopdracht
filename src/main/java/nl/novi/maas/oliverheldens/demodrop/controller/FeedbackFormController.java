@@ -15,24 +15,28 @@ import java.util.List;
 @RequestMapping("/api/feedbackforms")
 public class FeedbackFormController {
 
+    /**
+     Dit endpoint regelt alles mbt het FeedbackForm uit de frontend
+     **/
+
     @Autowired
     FeedbackFormService feedbackFormService;
 
-    @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
+    @PreAuthorize("hasRole('ADMIN')")
     @GetMapping(value = "")
     public ResponseEntity<Object> getAllFeedbackForms() {
         List<FeedbackForm> feedbackForms = feedbackFormService.getAllFeedbackForms();
         return new ResponseEntity<>(feedbackForms, HttpStatus.OK);
     }
 
-    @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
+    @PreAuthorize("hasRole('ADMIN')")
     @GetMapping(value = "/{id}")
     public ResponseEntity<Object> getFeedbackFormById(@PathVariable("id") long id) {
         FeedbackForm feedbackForm = feedbackFormService.getFeedbackFormById(id);
         return new ResponseEntity<>(feedbackForm, HttpStatus.OK);
     }
 
-    @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping(value = "")
     public ResponseEntity<Object> saveFeedbackForm(@RequestBody FeedbackForm feedbackForm) {
         long newId = feedbackFormService.saveFeedbackForm(feedbackForm);

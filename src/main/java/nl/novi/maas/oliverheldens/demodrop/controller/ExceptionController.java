@@ -1,9 +1,6 @@
 package nl.novi.maas.oliverheldens.demodrop.controller;
 
-import nl.novi.maas.oliverheldens.demodrop.exceptions.BadRequestException;
-import nl.novi.maas.oliverheldens.demodrop.exceptions.ForbiddenException;
-import nl.novi.maas.oliverheldens.demodrop.exceptions.RecordNotFoundException;
-import nl.novi.maas.oliverheldens.demodrop.exceptions.UserNotFoundException;
+import nl.novi.maas.oliverheldens.demodrop.exceptions.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -13,6 +10,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @ControllerAdvice
 public class ExceptionController {
+
+    /**
+     Hier worden alle Exeptions afgehandeld.
+     **/
 
     @ExceptionHandler(value = RecordNotFoundException.class)
     public ResponseEntity<Object> exception(RecordNotFoundException exception) {
@@ -32,6 +33,11 @@ public class ExceptionController {
     @ExceptionHandler(value = ForbiddenException.class)
     public ResponseEntity<Object> exception(ForbiddenException exception) {
         return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
+    }
+
+    @ExceptionHandler(value = DatabaseErrorException.class)
+    public ResponseEntity<Object> exception(DatabaseErrorException exception) {
+        return ResponseEntity.badRequest().build();
     }
 
 }

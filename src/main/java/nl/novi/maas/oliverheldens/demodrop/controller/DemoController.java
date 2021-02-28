@@ -22,6 +22,10 @@ public class DemoController {
     @Autowired
     DemoService demoService;
 
+    /**
+    Onderdeel van de upload file waarbij extra data wordt meegegeven
+     **/
+
     @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
     @PostMapping("/uploads")
     public void uploadFile(@RequestParam("file") MultipartFile file,

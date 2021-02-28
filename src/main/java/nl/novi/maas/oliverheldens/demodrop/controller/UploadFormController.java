@@ -15,6 +15,10 @@ import java.util.List;
 @RequestMapping("/api/uploadforms")
 public class UploadFormController {
 
+    /** De @PreAuthorize uitgecomment zodat de  Frontend applicatie goed werkt
+     Wel werkt de @PreAuthorize via postman
+     **/
+
     @Autowired
     UploadFormService uploadFormService;
 

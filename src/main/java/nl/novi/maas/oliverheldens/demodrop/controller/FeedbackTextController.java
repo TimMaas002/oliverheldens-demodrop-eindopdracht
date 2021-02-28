@@ -15,17 +15,21 @@ import java.util.List;
 @RequestMapping("/api/feedbacktexts")
 public class FeedbackTextController {
 
+    /**
+     Dit endpoint regelt alles mbt het ophalen van de Feedbacktexten
+     **/
+
     @Autowired
     FeedbackTextService feedbackTextService;
 
-    @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
+    @PreAuthorize("hasRole('ADMIN')")
     @GetMapping(value = "")
     public ResponseEntity<Object> getAllFeedbackTexts() {
         List<FeedbackText> feedbackTexts = feedbackTextService.getAllFeedbackTexts();
         return new ResponseEntity<>(feedbackTexts, HttpStatus.OK);
     }
 
-    @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
+    @PreAuthorize("hasRole('ADMIN')")
     @GetMapping(value = "/{id}")
     public ResponseEntity<Object> getFeedbackTextById(@PathVariable("id") long id) {
         FeedbackText feedbackText = feedbackTextService.getFeedbackTextById(id);

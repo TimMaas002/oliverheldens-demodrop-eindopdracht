@@ -12,6 +12,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/test")
 public class TestController {
 
+    /**
+     Een test controller om te checken of de database goed runt en is opgestart
+     **/
+
     private final TestService testService;
 
     @Autowired

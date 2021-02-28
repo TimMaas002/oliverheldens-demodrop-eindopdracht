@@ -22,6 +22,10 @@ import java.util.stream.Collectors;
 @RequestMapping("/api/files")
 public class DemoFilesController {
 
+    /**
+    Onderdeel van de upload file. Hier wordt puur en alleen de file meegegeven aan de database met zijn meta data
+     **/
+
     private final StorageService storageService;
 
     @Autowired
