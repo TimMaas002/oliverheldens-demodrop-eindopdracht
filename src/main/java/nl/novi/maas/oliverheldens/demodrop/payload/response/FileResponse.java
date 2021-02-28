@@ -2,6 +2,11 @@ package nl.novi.maas.oliverheldens.demodrop.payload.response;
 
 public class FileResponse {
 
+    /**
+     Deze response wordt aangeroepen wanneer het betrekking heeft op de geuploade demo
+     Het geeft alle informatie over het geüploade data object (file) weer
+     **/
+
     private String name;
     private String url;
     private String type;

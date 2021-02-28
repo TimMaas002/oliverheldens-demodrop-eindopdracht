@@ -3,6 +3,13 @@ package nl.novi.maas.oliverheldens.demodrop.payload.response;
 import java.util.List;
 
 public class JwtResponse {
+
+    /**
+     De JwtResponse geeft een bearer token terug aan de gebruiker.
+     Dit is de bearer token waarmee de gebruiker vervolgens kan inloggen
+     om geauthorizeerd te zijn
+     **/
+
     private String token;
     private String type = "Bearer";
     private Long id;
