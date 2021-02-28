@@ -14,9 +14,7 @@ import java.util.Set;
  * admin, admin@admin.nl, 123456, ROL: admin
  * user, user@user.nl, 123456, ROL: user
  *
- * UITLEG COMPONENT ANNOTATIE
- * http://zetcode.com/springboot/component/
- */
+**/
 @Component
 public class DatabaseFiller implements CommandLineRunner {
 

@@ -18,28 +18,28 @@ public class UploadFormController {
     @Autowired
     UploadFormService uploadFormService;
 
-    @PreAuthorize("hasRole('ADMIN')")
+//    @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
     @GetMapping(value = "")
     public ResponseEntity<Object> getAllUploadForms() {
         List<UploadForm> uploadForms = uploadFormService.getAllUploadForms();
         return new ResponseEntity<>(uploadForms, HttpStatus.OK);
     }
 
-    @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
+//    @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
     @GetMapping(value = "/{id}")
     public ResponseEntity<Object> getUploadFormById(@PathVariable("id") long id) {
         UploadForm uploadForm = uploadFormService.getUploadFormById(id);
         return new ResponseEntity<>(uploadForm, HttpStatus.OK);
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
+//    @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
     @PostMapping(value = "")
     public ResponseEntity<Object> saveUploadForm(@RequestBody UploadForm uploadForm) {
         long newId = uploadFormService.saveUploadForm(uploadForm);
         return new ResponseEntity<>(newId, HttpStatus.CREATED);
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
+//    @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
     @PutMapping(value = "/{id}")
     public ResponseEntity<Object> updateUploadForm(@PathVariable("id") long id, @RequestBody UploadForm uploadForm) {
         uploadFormService.updateUploadForm(id, uploadForm);

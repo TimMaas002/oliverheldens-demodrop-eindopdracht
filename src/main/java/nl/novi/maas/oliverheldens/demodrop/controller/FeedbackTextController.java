@@ -18,14 +18,14 @@ public class FeedbackTextController {
     @Autowired
     FeedbackTextService feedbackTextService;
 
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
     @GetMapping(value = "")
     public ResponseEntity<Object> getAllFeedbackTexts() {
         List<FeedbackText> feedbackTexts = feedbackTextService.getAllFeedbackTexts();
         return new ResponseEntity<>(feedbackTexts, HttpStatus.OK);
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
     @GetMapping(value = "/{id}")
     public ResponseEntity<Object> getFeedbackTextById(@PathVariable("id") long id) {
         FeedbackText feedbackText = feedbackTextService.getFeedbackTextById(id);
