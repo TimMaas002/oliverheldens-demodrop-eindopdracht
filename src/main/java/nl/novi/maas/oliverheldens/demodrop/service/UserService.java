@@ -6,6 +6,12 @@ import java.util.List;
 
 public interface UserService {
 
+    /**
+     * Binnen de applicatie is het (nog) niet mogelijk een user aan te passen
+     * Dit wordt in de toekomst wel gedaan, en om deze reden
+     * staan deze methodes hier alvast klaar
+     */
+
     List<User> getAllUsers();
     User getUserById(long id);
     void deleteUser(long id);

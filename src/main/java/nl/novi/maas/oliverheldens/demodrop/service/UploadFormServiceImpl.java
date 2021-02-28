@@ -12,6 +12,13 @@ import java.util.List;
 @Service
 public class UploadFormServiceImpl implements UploadFormService {
 
+    /**
+     * Deze service geeft alle methodes door aan de repository
+     * om de desbetreffende informatie uit de database te halen
+     * Mocht deze data niet bekend zijn in de database
+     * dan wordt een exception gestuurd
+     */
+
     @Autowired
     UploadFormRepository uploadFormRepository;
 
@@ -24,16 +31,6 @@ public class UploadFormServiceImpl implements UploadFormService {
     public UploadForm getUploadFormById(long id) {
         if (uploadFormRepository.existsById(id)) {
             return uploadFormRepository.findById(id).orElse(null);
-        }
-        else {
-            throw new RecordNotFoundException();
-        }
-    }
-
-    @Override
-    public void deleteUploadForm(long id) {
-        if (uploadFormRepository.existsById(id)) {
-            uploadFormRepository.deleteById(id);
         }
         else {
             throw new RecordNotFoundException();

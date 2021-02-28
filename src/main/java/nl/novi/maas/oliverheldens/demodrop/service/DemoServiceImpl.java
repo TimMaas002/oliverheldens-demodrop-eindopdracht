@@ -17,6 +17,12 @@ import java.util.Optional;
 @Service
 public class DemoServiceImpl implements DemoService{
 
+    /**
+     * Deze implementatie geeft aan naar welke map de file moet worden geüpload
+     * Daarnaast wordt de juiste informatie als name & message geplaatst in
+     * de juiste kolom
+     */
+
     @Autowired
     private DemoRepository demoRepository;
 

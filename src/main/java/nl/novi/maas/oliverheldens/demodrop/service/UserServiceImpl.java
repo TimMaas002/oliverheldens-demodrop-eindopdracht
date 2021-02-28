@@ -11,6 +11,13 @@ import java.util.List;
 @Service
 public class UserServiceImpl implements UserService {
 
+    /**
+     * Deze service geeft alle methodes door aan de repository
+     * om de desbetreffende informatie uit de database te halen
+     * Mocht deze data niet bekend zijn in de database
+     * dan wordt een exception gestuurd
+     */
+
     @Autowired
     private UserRepository userRepository;
 

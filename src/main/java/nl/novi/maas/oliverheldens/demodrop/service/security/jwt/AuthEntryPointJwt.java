@@ -27,6 +27,7 @@ public class AuthEntryPointJwt  implements AuthenticationEntryPoint {
      * @param authException exception
      * @throws IOException exception
      */
+
     @Override
     public void commence(HttpServletRequest request, HttpServletResponse response,
                          AuthenticationException authException) throws IOException {

@@ -18,11 +18,11 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-
 /**
  * Hier gebruiken we de EnableGlobalMethodSecurity(prePostIsEnabled = true) om de @PreAuthorize annotaties te gebruiken
  * op andere plekken in de applicatie.
  */
+
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(
@@ -57,6 +57,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
+
+    /**
+     * De juiste endpoints zijn toegevoegd aan de .antMatchers().permitAll()
+     * om ervoor te zorgen dat endpoints open staan.
+     */
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {

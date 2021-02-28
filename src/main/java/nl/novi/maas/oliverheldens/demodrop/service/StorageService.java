@@ -13,10 +13,15 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Stream;
 
 @Service
 public class StorageService {
+
+    /**
+     * Deze Service praat met de demoFiles. De public void save pakt hier alle meta data
+     * uit de file die is geüpload en plaatst dit vervolgens in de juiste kolom
+     * Daarnaast wordt de geüploade file ook geplaatst in de juiste map FileUploads
+     */
 
     private static DemoFilesRepository demoFilesRepository;
 
@@ -25,7 +30,6 @@ public class StorageService {
         this.demoFilesRepository = demoFilesRepository;
     }
 
-//    public static String uploadDirectory = System.getProperty("user.dir") + "/FileUploads/";
 
     public void save(MultipartFile file) throws IOException {
 
@@ -35,7 +39,6 @@ public class StorageService {
         DemoFiles fileEntity = new DemoFiles();
         fileEntity.setName(StringUtils.cleanPath(file.getOriginalFilename()));
         fileEntity.setContentType(file.getContentType());
-//        fileEntity.setData(file.getBytes());
         fileEntity.setDirectory(uploadDirectory + "/" + file.getOriginalFilename());
         fileEntity.setSize(file.getSize());
 

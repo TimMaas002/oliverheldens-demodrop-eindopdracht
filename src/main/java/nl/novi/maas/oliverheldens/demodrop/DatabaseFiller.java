@@ -13,8 +13,8 @@ import java.util.Set;
  * In deze klasse voegen we twee gebruikers met één rol toe:
  * admin, admin@admin.nl, 123456, ROL: admin
  * user, user@user.nl, 123456, ROL: user
- *
 **/
+
 @Component
 public class DatabaseFiller implements CommandLineRunner {
 
