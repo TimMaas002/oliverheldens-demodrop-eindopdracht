@@ -44,13 +44,13 @@ class UserServiceImplTest {
         user = new User();
         user.setId(3);
         user.setUsername("timheee");
-        user.setEmail("tim.maas@live.nl");
+        user.setEmail("tim.maas@gmail.nl");
         user.setPassword("password");
 
         user = new User();
         user.setId(4);
-        user.setUsername("koen");
-        user.setEmail("koen.maas@live.nl");
+        user.setUsername("tommy");
+        user.setEmail("tommy.krijt@gmail.nl");
         user.setPassword("password");
 
     }
