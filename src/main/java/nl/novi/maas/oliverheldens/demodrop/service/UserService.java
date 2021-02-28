@@ -1,6 +1,7 @@
 package nl.novi.maas.oliverheldens.demodrop.service;
 
 import nl.novi.maas.oliverheldens.demodrop.domain.User;
+import org.springframework.http.ResponseEntity;
 
 import java.util.List;
 
@@ -17,4 +18,5 @@ public interface UserService {
     void deleteUser(long id);
     long saveUser(User user);
     void updateUser(long id, User user);
+    ResponseEntity<?> findUserByToken(String token);
 }

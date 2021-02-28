@@ -57,6 +57,14 @@ public class UploadForm {
         this.upload_file = upload_file;
     }
 
+    public UploadForm(Long id, String artist_name, String song_name, String message, String upload_file) {
+        this.id = id;
+        this.artist_name = artist_name;
+        this.song_name = song_name;
+        this.message = message;
+        this.upload_file = upload_file;
+    }
+
     public long getId() {
         return id;
     }

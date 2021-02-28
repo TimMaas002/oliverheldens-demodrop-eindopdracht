@@ -2,6 +2,7 @@ package nl.novi.maas.oliverheldens.demodrop.service;
 
 import nl.novi.maas.oliverheldens.demodrop.OHdemodropApplication;
 import nl.novi.maas.oliverheldens.demodrop.domain.Roles;
+import nl.novi.maas.oliverheldens.demodrop.domain.UploadForm;
 import nl.novi.maas.oliverheldens.demodrop.domain.User;
 import nl.novi.maas.oliverheldens.demodrop.repository.UserRepository;
 import org.junit.jupiter.api.Assertions;
@@ -56,7 +57,7 @@ class UserServiceImplTest {
     }
 
     @Test
-    public void testWhenFindByIdShouldReturnUsername() {
+    public void whenFindById_ShouldReturnUsername() {
 
         Mockito
                 .when(userRepository.existsById((long) 3))
@@ -71,7 +72,7 @@ class UserServiceImplTest {
     }
 
     @Test
-    public void testWhenFindByIdNotFoundShouldReturn404() {
+    public void whenFindByIdNotFound_ShouldReturn404() {
 
         Mockito
                 .when(userRepository.existsById((long) 4))
